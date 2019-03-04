@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CA_InputValidation", "CA_InputValidation\CA_InputValidation.csproj", "{A8A78656-0313-421B-9666-4B479B087326}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9863D5BD-184B-467D-BDE1-A102700AB030}"
+	ProjectSection(SolutionItems) = preProject
+		azure-pipelines.yml = azure-pipelines.yml
+		GitVersion.yml = GitVersion.yml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A8A78656-0313-421B-9666-4B479B087326}.Debug|x64.ActiveCfg = Debug|x64
+		{A8A78656-0313-421B-9666-4B479B087326}.Debug|x64.Build.0 = Debug|x64
+		{A8A78656-0313-421B-9666-4B479B087326}.Debug|x86.ActiveCfg = Debug|x64
+		{A8A78656-0313-421B-9666-4B479B087326}.Release|x64.ActiveCfg = Release|x64
+		{A8A78656-0313-421B-9666-4B479B087326}.Release|x64.Build.0 = Release|x64
+		{A8A78656-0313-421B-9666-4B479B087326}.Release|x86.ActiveCfg = Release|x64
+		{A8A78656-0313-421B-9666-4B479B087326}.Release|x86.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0323E9AA-F229-4929-86C9-EF0EE08028D0}
+	EndGlobalSection
+EndGlobal
