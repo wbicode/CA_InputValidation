@@ -41,7 +41,7 @@ namespace CA_InputValidation
                     break;
                 }
             }
-            session["PORT_IS_AVAILABLE"] = isAvailable.ToString();
+            session["PORT_IS_AVAILABLE"] = (isAvailable ? "1" : "");
 
             return ActionResult.Success;
         }
