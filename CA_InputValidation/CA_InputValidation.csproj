@@ -48,6 +48,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="CA_InputValidation.nuspec" />
+    <None Include="LICENSE.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="documentation\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(WixCATargetsPath)" Condition=" '$(WixCATargetsPath)' != '' " />
