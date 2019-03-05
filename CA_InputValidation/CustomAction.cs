@@ -1,5 +1,7 @@
 using Microsoft.Deployment.WindowsInstaller;
+using System.Linq;
 using System.Net.NetworkInformation;
+using System.ServiceProcess;
 
 namespace CA_InputValidation
 {
@@ -22,8 +24,7 @@ namespace CA_InputValidation
         {
             session.Log("Begin CheckPort");
 
-            int port;
-            if (!int.TryParse(session["PORT_TO_CHECK"], out port))
+            if (!int.TryParse(session["PORT_TO_CHECK"], out int port))
             {
                 return ActionResult.NotExecuted;
             }
@@ -40,7 +41,23 @@ namespace CA_InputValidation
                     break;
                 }
             }
-            session["PORT_IS_AVAILABLE"] = isAvailable.ToString();
+            session["PORT_IS_AVAILABLE"] = (isAvailable ? "1" : "");
+
+            return ActionResult.Success;
+        }
+
+        [CustomAction]
+        public static ActionResult ExistsService(Session session)
+        {
+            ServiceController ctl = ServiceController.GetServices().FirstOrDefault(s => s.ServiceName == session["CA_IV_SERVICE_NAME"]);
+            if (ctl == null)
+            {
+                session["CA_IV_SERVICE_EXISTS"] = "";
+            }
+            else
+            {
+                session["CA_IV_SERVICE_EXISTS"] = "1";
+            }
 
             return ActionResult.Success;
         }
