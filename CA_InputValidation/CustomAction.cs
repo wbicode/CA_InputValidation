@@ -22,8 +22,7 @@ namespace CA_InputValidation
         {
             session.Log("Begin CheckPort");
 
-            int port;
-            if (!int.TryParse(session["PORT_TO_CHECK"], out port))
+            if (!int.TryParse(session["PORT_TO_CHECK"], out int port))
             {
                 return ActionResult.NotExecuted;
             }
