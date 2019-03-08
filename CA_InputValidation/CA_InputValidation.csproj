@@ -48,7 +48,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="CA_InputValidation.nuspec" />
-    <None Include="LICENSE.md" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="documentation\" />
