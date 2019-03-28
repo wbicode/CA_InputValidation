@@ -20,6 +20,18 @@ namespace CA_InputValidation
         }
 
         [CustomAction]
+        public static ActionResult ReplaceFrontslashWithBackslash(Session session)
+        {
+            session.Log("Begin ReplaceFrontslashWithBackslash");
+
+            string propertyToReplace = session["PROPERTY_TO_REPLACE_FRONTSLASH"];
+
+            session[propertyToReplace] = session[propertyToReplace].Replace("/", "\\");
+
+            return ActionResult.Success;
+        }
+
+        [CustomAction]
         public static ActionResult CheckPort(Session session)
         {
             session.Log("Begin CheckPort");

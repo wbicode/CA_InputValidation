@@ -4,8 +4,11 @@ This is a CustomAction for a WiX Project (v3) which provides input sanitizer uti
 
 * Check if a Port is available on this machine
 * Check if a given windows service is installed
-* Replace backslashes with frontslash
-* TODO: pretty format .xml files
+* Replace backslashes with frontslashes
+  * for example when using a path in the command line (if it ends with a backslash the following character could be escaped)
+* Replace frontslashes with backslashes
+  * for example when using user input as a WiX path for a directory (can only consist of backslashes)
+* pretty format .xml files
 
 # Usage
 
@@ -39,7 +42,7 @@ Somewhere below a button:
    <Publish Event="SpawnDialog" Value="PortInUseWarningDlg" Order="3">NOT PORT_IS_AVAILABLE</Publish>
 ```
 
-## Replace backslashes
+## Replace backslashes with frontslashes
 
 ```xml
    <SetProperty Before="ReplaceLOG_PATH" Id="PROPERTY_TO_REPLACE_BACKSLASH" Value="LOG_PATH" Sequence="execute" />
@@ -54,4 +57,15 @@ And you have to schedule your CustomAction in your InstallExecuteSequence (or In
 <InstallExecuteSequence>
   <Custom Action="ReplaceLOG_PATH" Before="InstallTS">NOT Installed</Custom>
 </InstallExecuteSequence>
+```
+
+## Replace frontslashes with backslashes
+
+For example when using user input as a WiX path for a directory (which can only consist of backslashes)
+
+```xml
+   <SetProperty Before="ReplaceLOG_PATH" Id="PROPERTY_TO_REPLACE_FRONTSLASH" Value="USER_LOG_PATH" Sequence="execute" />
+   <CustomAction Id="ReplaceLOG_PATH" DllEntry="ReplaceFrontslashWithBackslash" BinaryKey="CA_InputValidation" />
+```
+
 ```
