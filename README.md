@@ -64,8 +64,10 @@ And you have to schedule your CustomAction in your InstallExecuteSequence (or In
 For example when using user input as a WiX path for a directory (which can only consist of backslashes)
 
 ```xml
-   <SetProperty Before="ReplaceLOG_PATH" Id="PROPERTY_TO_REPLACE_FRONTSLASH" Value="USER_LOG_PATH" Sequence="execute" />
-   <CustomAction Id="ReplaceLOG_PATH" DllEntry="ReplaceFrontslashWithBackslash" BinaryKey="CA_InputValidation" />
+   <SetProperty Before="ReplaceUSER_LOG_PATH" Id="PROPERTY_TO_REPLACE_FRONTSLASH" Value="USER_LOG_PATH" Sequence="execute" />
+   <CustomAction Id="ReplaceUSER_LOG_PATH" DllEntry="ReplaceFrontslashWithBackslash" BinaryKey="CA_InputValidation" />
 ```
+
+And then schedule the "ReplaceUSER_LOG_PATH" in InstallExecuteSequence or InstallUISequence.
 
 ```
